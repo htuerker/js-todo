@@ -8,7 +8,7 @@ export default function newProjectForm() {
         focusConfirm: false,
         confirmButtonText: 'Add Project',
         preConfirm: () => {
-            newProject();
+          newProject();
         }
     });
 }
