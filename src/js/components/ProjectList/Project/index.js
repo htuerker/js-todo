@@ -2,14 +2,16 @@ import Todo from "../../TodoList/Todo";
 import TodoButton from "../../TodoList/TodoButton";
 
 export default class Project {
-  constructor(title, todos) {
+  constructor(id, title, todos) {
+    this.id = id;
     this.title = title;
     this.todos = todos;
-  }
+    }
 
   render() {
     const projectDiv = document.createElement("div");
     projectDiv.className = "project-tab";
+    projectDiv.setAttribute('id', 'project-' + this.id);
 
     const title = document.createElement("h2");
     title.innerHTML = this.title;
@@ -19,7 +21,7 @@ export default class Project {
         this.todos.forEach((todo) => projectDiv.appendChild(todo.render()));
     }
 
-    projectDiv.appendChild(TodoButton());
+    projectDiv.appendChild(TodoButton(this.id));
 
     return projectDiv;
   }

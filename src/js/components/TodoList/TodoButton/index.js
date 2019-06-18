@@ -1,9 +1,8 @@
 import TodoForm from '../Todo/TodoForm'
 
-export default function TodoButton() {
+export default function TodoButton(id) {
     const newTodoButton = document.createElement('button');
     newTodoButton.innerHTML = 'New ToDo';
-    newTodoButton.addEventListener('click', () => TodoForm());
-
+    newTodoButton.addEventListener('click', () => TodoForm(id));
     return newTodoButton;
 }
