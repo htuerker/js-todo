@@ -1,4 +1,4 @@
-import TodoForm from '../Todo/TodoForm'
+import TodoForm from './TodoForm'
 
 export default function TodoButton(id) {
     const newTodoButton = document.createElement('button');

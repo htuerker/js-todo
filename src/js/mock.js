@@ -1,5 +1,5 @@
-import Todo from './components/TodoList/Todo';
-import Project from './components/ProjectList/Project';
+import Todo from './components/Todo';
+import Project from './components/Project';
 
 let count = 1;
 const counter= () => { return count += 1 };

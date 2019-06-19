@@ -14,7 +14,9 @@ body {
     text-align: center;
 }
 
-#projects div {
+.project-tab{
+    display: flex;
+    flex-direction: column;
     width: 300px;
     border: 1px solid red;
     margin: 0 20px;

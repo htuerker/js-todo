@@ -1,11 +1,11 @@
-import Todo from "../../TodoList/Todo";
-import TodoButton from "../../TodoList/TodoButton";
+import Todo from "./Todo";
+import TodoButton from "./TodoButton";
 
 export default class Project {
   constructor(id, title, todos) {
     this.id = id;
     this.title = title;
-    this.todos = todos;
+    this.todos = [...todos];
     }
 
   render() {

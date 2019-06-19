@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
-import Todo from '../../Todo';
-import { createTodo } from '../../../../mock';
+import Todo from './Todo';
+import { createTodo } from '../mock';
 
 export default function TodoForm(id) {
   console.log(id);
