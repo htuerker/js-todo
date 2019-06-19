@@ -1,9 +1,12 @@
+const priorityColors = ['LightBlue', 'khaki', 'LightCoral'];
+
 export default class Todo {
-  constructor(title, description) {
+  constructor(title, description, priority) {
     this.id = this.uniqueId();
     this.title = title;
     this.description = description;
     this.done = false;
+    this.priority = priority;
   }
 
   toggleDone() {
@@ -26,18 +29,33 @@ export default class Todo {
 
     const header = document.createElement("div");
     header.className = "header"
+
     const todoTitle = document.createElement("p");
     todoTitle.innerHTML = this.title;
+
+    const priorityBullet = document.createElement('span');
+    priorityBullet.innerHTML = '•';
+    priorityBullet.className = 'priority-bullet';
+    priorityBullet.style.color = priorityColors[this.priority];
+    todoTitle.prepend(priorityBullet);
     todoTitle.addEventListener('click', () => this.toggleDescription());
     header.appendChild(todoTitle);
 
-    const doneCheckbox = document.createElement("input");
-    doneCheckbox.setAttribute("type", "checkbox");
-    doneCheckbox.addEventListener('change', () => this.toggleDone());
-    header.appendChild(doneCheckbox);
+    // To-Do extract it into another component
+    const doneCheckboxDiv = document.createElement("div");
+    const checkbox = document.createElement('input');
+    checkbox.id = 'check-' + this.id;
+    checkbox.type = 'checkbox';
+    checkbox.addEventListener('change', () => this.toggleDone());
+    const label = document.createElement('label');
+    label.setAttribute('for', 'check-' + this.id);
+    const span = document.createElement('span');
+    label.appendChild(span);
+    doneCheckboxDiv.appendChild(checkbox);
+    doneCheckboxDiv.appendChild(label);
 
+    header.appendChild(doneCheckboxDiv);
     todoDiv.appendChild(header);
-
     const todoDescription = document.createElement("div");
     todoDescription.innerHTML = this.description;
     todoDescription.className = "todo-description";

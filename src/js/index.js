@@ -6,7 +6,7 @@ import TodoButton from './components/TodoButton';
 import Project from './components/Project.js';
 import Todo from './components/Todo.js';
 
-// alert('5');
+alert('5');
 
 (function init() {
   const newProjectButton = document.createElement('button');
