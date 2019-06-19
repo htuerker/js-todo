@@ -7,5 +7,8 @@ export default function ProjectList() {
 }
 
 function retrieveProjects() {
-  return [ new Project('project 1')];
+  return [  new Project('project 1', [new Todo('todo1', 'desc1'), new Todo('todo2', 'desc2')]),
+            new Project('project 2', [new Todo('todo1', 'desc1'), new Todo('todo2', 'desc2')]),
+            new Project('project 3', [new Todo('todo1', 'desc1'), new Todo('todo2', 'desc2')]),
+            new Project('project 4', [new Todo('todo1', 'desc1'), new Todo('todo2', 'desc2')])];
 }

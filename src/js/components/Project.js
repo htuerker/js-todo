@@ -10,20 +10,22 @@ export default class Project {
 
   render() {
     const projectDiv = document.createElement("div");
-    projectDiv.className = "project-tab";
+    projectDiv.className = "project-card";
     projectDiv.setAttribute('id', 'project-' + this.id);
 
+    const header = document.createElement("div");
+    header.className = "header";
     const title = document.createElement("h2");
     title.innerHTML = this.title;
-    projectDiv.appendChild(title);
-
+    header.appendChild(title);
     const button = TodoButton(this.id);
-    projectDiv.appendChild(button);
+    header.appendChild(button);
+
+    projectDiv.appendChild(header);
 
     if (this.todos) {
       this.todos.forEach((todo) => {
         todo.prototype = Todo.prototype;
-        console.log(todo);
         projectDiv.appendChild(todo.render());
       });
     }
@@ -40,4 +42,3 @@ export default class Project {
     return localStorage['project_id'];
   }
 }
-

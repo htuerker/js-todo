@@ -1,5 +1,5 @@
 body {
-  background-color: salmon;
+  background-color: rgba(60, 60, 60, 0.3);
 }
 
 .container {
@@ -9,24 +9,64 @@ body {
     flex-direction: column;
 }
 
-#projects {
-    display: flex;
-    text-align: center;
+.new-project-btn {
+    width: 300px;
+    height: 40px;
+    margin: 0 auto;
 }
 
-.project-tab{
+#projects {
+    display: flex;
+    align-items: flex-start;
+    /* text-align: center; */
+    margin: 30px 0;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.project-card {
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     width: 300px;
-    border: 1px solid red;
     margin: 0 20px;
+    min-height: 250px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid rgba(60, 60, 60, 0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 2px silver;
 }
 
-/* #projects div:hover {
-    text-decoration: underline;
-} */
+.header {
+    display: flex;
+    justify-content: space-between;
+}
 
-/* #to-dos {
-    flex: 4;
-    text-align: center;
-} */
+.header h2 {
+    margin: 15px;
+}
+
+.header button {
+    margin: 15px;
+}
+
+.header p {
+    margin: 5px 0;
+}
+
+.header input {
+}
+
+.todo-block {
+    margin: 0 15px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(60, 60, 60, 0.5);
+}
+
+.todo-description {
+    display: none;
+}
