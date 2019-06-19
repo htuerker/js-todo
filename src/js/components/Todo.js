@@ -1,6 +1,6 @@
 export default class Todo {
-  constructor(id, title) {
-    this.id = id;
+  constructor(title) {
+    this.id = this.uniqueId();
     this.title = title;
   }
 
@@ -9,9 +9,15 @@ export default class Todo {
     todoDiv.className = "todo-tab";
     todoDiv.id = "todo-" + this.id;
     todoDiv.innerHTML = this.title;
-    const checkedButton = document.createElement('button');
-    checkedButton.addEventListener('click', () => alert(this.id));
-    todoDiv.appendChild(checkedButton);
     return todoDiv;
+  }
+
+  uniqueId() {
+    if(!localStorage['todo_id']) {
+      localStorage['todo_id'] = 1;
+    } else {
+      localStorage['todo_id']++;
+    }
+    return localStorage['todo_id'];
   }
 }

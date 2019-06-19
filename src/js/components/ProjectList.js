@@ -1,7 +1,5 @@
-// import { retrieveProjects } from '../localStorage';
 import Project from './Project';
 import Todo from './Todo';
-import { projects } from '../mock';
 
 export default function ProjectList() {
   const projects = retrieveProjects();
@@ -9,5 +7,5 @@ export default function ProjectList() {
 }
 
 function retrieveProjects() {
-  return projects;
+  return [ new Project('project 1')];
 }

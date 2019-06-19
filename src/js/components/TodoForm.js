@@ -1,9 +1,7 @@
 import Swal from 'sweetalert2';
-import Todo from './Todo';
-import { createTodo } from '../mock';
+import Todo from './Todo.js';
 
 export default function TodoForm(id) {
-  console.log(id);
   Swal.fire({
     html:
     '<input id="title" class="swal2-input" placeholder="Title">'
@@ -17,10 +15,10 @@ export default function TodoForm(id) {
 }
 
 function appendTodo(projectId) {
-  const project = document.getElementById('project-' + projectId);
-  if(project) {
-    const todo = createTodo(document.getElementById('title').value);
-    const newTodo = todo.render();
-    project.insertBefore(newTodo, project.lastChild);
+  const projectDiv = document.getElementById('project-' + projectId);
+  if(projectDiv) {
+    const todoObject = new Todo(document.getElementById('title').value);
+    const newTodoDiv = todoObject.render();
+    projectDiv.appendChild(newTodoDiv);
   }
 }

@@ -1,12 +1,12 @@
-import Todo from "./Todo";
-import TodoButton from "./TodoButton";
+import Todo from './Todo';
+import TodoButton from './TodoButton';
 
 export default class Project {
-  constructor(id, title, todos) {
-    this.id = id;
+  constructor(title, todos) {
+    this.id = this.uniqueId();
     this.title = title;
-    this.todos = [...todos];
-    }
+    this.todos = todos;
+  }
 
   render() {
     const projectDiv = document.createElement("div");
@@ -17,12 +17,27 @@ export default class Project {
     title.innerHTML = this.title;
     projectDiv.appendChild(title);
 
-    if (this.todos) {
-        this.todos.forEach((todo) => projectDiv.appendChild(todo.render()));
-    }
+    const button = TodoButton(this.id);
+    projectDiv.appendChild(button);
 
-    projectDiv.appendChild(TodoButton(this.id));
+    if (this.todos) {
+      this.todos.forEach((todo) => {
+        todo.prototype = Todo.prototype;
+        console.log(todo);
+        projectDiv.appendChild(todo.render());
+      });
+    }
 
     return projectDiv;
   }
+
+  uniqueId() {
+    if(!localStorage['project_id']) {
+      localStorage['project_id'] = 1;
+    } else {
+      localStorage['project_id']++;
+    }
+    return localStorage['project_id'];
+  }
 }
+

@@ -15,8 +15,7 @@ export default function ProjectForm() {
 }
 
 function appendProject() {
-    const newProject = new Project(1212, "hello", []);
-    
+    const newProject = new Project(document.getElementById('title').value);
     const projectsDiv = document.getElementById('projects');
     projectsDiv.appendChild(newProject.render());
 }
