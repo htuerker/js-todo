@@ -15,16 +15,17 @@ body {
     margin: 30px auto;
     height: 40px;
     width: 160px;
-    background-color: #3085d6;
-    color: white;
+    background-color: white;
+    color: rgba(60, 60, 60, 1);
     font-size: 16px;
     font-weight: bold;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid rgba(60, 60, 60, 0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 2px silver;
 }
 
 .new-project-btn:hover {
-    background-image: linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1));
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .projects {
@@ -119,6 +120,7 @@ body {
     padding: 5px;
     width: 100%;
     resize: vertical;
+    margin: 5px 0;
     border: 1px solid rgba(60, 60, 60, 0.5);
     border-radius: 2px;
     box-shadow: 0 0 1px silver inset;
