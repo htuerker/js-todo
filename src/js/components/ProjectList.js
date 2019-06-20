@@ -1,14 +1,17 @@
+import { retrieveProjects } from '../LocalStorage';
 import Project from './Project';
 import Todo from './Todo';
 
 export default function ProjectList() {
   const projects = retrieveProjects();
-  return projects.map((project) => project.render());
-}
+  console.log(projects);
+  const projectsDiv = document.createElement('div');
+  projectsDiv.className = 'projects';
 
-function retrieveProjects() {
-  return [  new Project('project 1', [new Todo('todo1', 'desc1', 0), new Todo('todo2', 'desc2', 1), new Todo('todo3', 'desc3', 2)]),
-            new Project('project 2', [new Todo('todo1', 'desc1', 0), new Todo('todo2', 'desc2', 1), new Todo('todo3', 'desc3', 2)]),
-            new Project('project 3', [new Todo('todo1', 'desc1', 0), new Todo('todo2', 'desc2', 1), new Todo('todo3', 'desc3', 2)]),
-            new Project('project 4', [new Todo('todo1', 'desc1', 0), new Todo('todo2', 'desc2', 1), new Todo('todo3', 'desc3', 2)])];
+  projects.forEach((project) => {
+    Object.setPrototypeOf(project, Project.prototype)
+    projectsDiv.appendChild(project.render());
+  });
+
+  return projectsDiv;
 }

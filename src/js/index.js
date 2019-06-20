@@ -2,7 +2,7 @@
 import ProjectList from './components/ProjectList';
 import ProjectForm from './components/ProjectForm';
 
-// alert('8');
+alert('6');
 
 (function init() {
   const newProjectButton = document.createElement('button');
@@ -10,10 +10,9 @@ import ProjectForm from './components/ProjectForm';
   newProjectButton.className = "new-project-btn"
   newProjectButton.addEventListener('click', () => ProjectForm());
 
-  const projectsDiv = document.querySelector('.projects');
   const container = document.querySelector(".container");
-  container.insertBefore(newProjectButton, projectsDiv);
+  container.appendChild(newProjectButton);
 
   const projectsList = ProjectList();
-  projectsList.forEach((project) => projectsDiv.appendChild(project));
+  container.appendChild(projectsList);
 })();

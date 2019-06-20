@@ -2,7 +2,7 @@ import Todo from './Todo';
 import NewTodoButton from './NewTodoButton';
 
 export default class Project {
-  constructor(title, todos) {
+  constructor(title, todos = []) {
     this.id = this.uniqueId();
     this.title = title;
     this.todos = todos;
@@ -15,7 +15,7 @@ export default class Project {
     const header = document.createElement("div");
     header.className = "header";
     header.appendChild(title);
-    header.appendChild(NewTodoButton(this.id));
+    header.appendChild(NewTodoButton(this));
 
     const projectDiv = document.createElement("div");
     projectDiv.className = "project-card";
@@ -23,7 +23,7 @@ export default class Project {
     projectDiv.appendChild(header);
     if (this.todos) {
       this.todos.forEach((todo) => {
-        todo.prototype = Todo.prototype;
+        Object.setPrototypeOf(todo, Todo.prototype);
         projectDiv.appendChild(todo.render());
       });
     }

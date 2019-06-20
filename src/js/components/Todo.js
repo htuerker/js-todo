@@ -1,3 +1,4 @@
+import { updateTodo } from '../LocalStorage';
 import PriorityBullet from "./PriorityBullet";
 import DoneCheckbox from "./DoneCheckbox";
 import DescriptionTextarea from "./DescriptionTextarea";
@@ -13,6 +14,7 @@ export default class Todo {
 
   toggleDone() {
     this.done = !this.done;
+    updateTodo(this);
   }
 
   toggleDescription() {

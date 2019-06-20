@@ -1,7 +1,8 @@
 import Swal from 'sweetalert2';
 import Todo from './Todo.js';
+import { updateProject } from '../LocalStorage';
 
-export default function TodoForm(id) {
+export default function TodoForm(project) {
   Swal.fire({
     html:
     `<input id="title" class="swal2-input" placeholder="Title">
@@ -15,13 +16,13 @@ export default function TodoForm(id) {
     focusConfirm: false,
     confirmButtonText: 'Add To-do',
     preConfirm: () => {
-      appendTodo(id);
+      appendTodo(project);
     }
   });
 }
 
-function appendTodo(projectId) {
-  const projectDiv = document.getElementById('project-' + projectId);
+function appendTodo(project) {
+  const projectDiv = document.getElementById('project-' + project.id);
   if(projectDiv) {
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
@@ -29,5 +30,8 @@ function appendTodo(projectId) {
     const todoObject = new Todo(title, description, priority);
     const newTodoDiv = todoObject.render();
     projectDiv.appendChild(newTodoDiv);
+
+    project.todos.push(todoObject);
+    updateProject(project);
   }
 }
