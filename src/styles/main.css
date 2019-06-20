@@ -2,6 +2,12 @@ body {
     background-image: url("../assets/image.png");
     margin: 0;
     font-family: ubuntu, arial;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 
 i:hover {
@@ -13,7 +19,7 @@ i:active {
 }
 
 .container {
-    max-width: 1020px;
+    max-width: 1006px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -37,10 +43,17 @@ i:active {
 }
 
 .projects {
+    position: relative;
     display: flex;
     align-items: flex-start;
     overflow-x: scroll;
     width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.projects::-webkit-scrollbar {
+    display: none;
 }
 
 .project-card {
@@ -127,4 +140,21 @@ i:active {
 .priority-bullet {
     margin-right: 10px;
     font-size: 20px;
+}
+
+#prev-btn, #next-btn {
+    position: fixed;
+    top: 230px;
+    color: rgba(60, 60, 60, 1);
+    font-size: 54px;
+}
+
+#prev-btn {
+    left: 50%;
+    margin-left: -580px;
+}
+
+#next-btn {
+    right: 50%;
+    margin-right: -600px;
 }

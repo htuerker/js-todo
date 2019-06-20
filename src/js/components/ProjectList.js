@@ -12,15 +12,15 @@ export default function ProjectList() {
     projectsDiv.appendChild(project.render());
   });
 
-  const nextButton = document.createElement('button');
-  nextButton.id = 'next-slide';
+  const nextButton = document.createElement('i');
+  nextButton.className = "fas fa-arrow-right"
+  nextButton.id = 'next-btn';
   nextButton.addEventListener('click', () => plusSlider(1));
-  nextButton.innerHTML = 'next';
 
-  const prevButton = document.createElement('button');
-  prevButton.id = 'prev-slide';
+  const prevButton = document.createElement('i');
+  prevButton.className = "fas fa-arrow-left"
+  prevButton.id = 'prev-btn';
   prevButton.addEventListener('click', () => plusSlider(-1));
-  prevButton.innerHTML = 'left';
 
   projectsDiv.prepend(nextButton);
   projectsDiv.prepend(prevButton);
@@ -30,5 +30,5 @@ export default function ProjectList() {
 
 function plusSlider(n) {
   let x = document.querySelector(".projects");
-  x.scrollLeft += 340 * n;
+  x.scrollLeft += 342 * n;
 }
