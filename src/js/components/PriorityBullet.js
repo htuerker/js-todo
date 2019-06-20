@@ -1,5 +1,3 @@
-import Todo from "./Todo";
-
 const priorityColors = ['LightBlue', 'khaki', 'LightCoral'];
 
 export default function PriorityBullet(todo) {

@@ -2,7 +2,16 @@ import Swal from 'sweetalert2';
 import Project from "./Project";
 import { saveProject } from '../LocalStorage';
 
-export default function ProjectForm() {
+export default function NewProjectButton() {
+    const newProjectButton = document.createElement('button');
+    newProjectButton.innerHTML = 'New Project';
+    newProjectButton.className = "new-project-btn"
+    newProjectButton.addEventListener('click', () => ProjectForm());
+
+    return newProjectButton;
+}
+
+function ProjectForm() {
   Swal.fire({
     html:
     '<input id="title" class="swal2-input" placeholder="Title">'

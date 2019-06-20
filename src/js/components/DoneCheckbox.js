@@ -1,5 +1,3 @@
-import Todo from "./Todo";
-
 export default function DoneCheckbox(todo) {
     const doneCheckboxDiv = document.createElement("div");
     const checkbox = document.createElement('input');

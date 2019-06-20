@@ -1,5 +1,6 @@
 import Todo from './Todo';
 import NewTodoButton from './NewTodoButton';
+import RemoveButton from './RemoveButton';
 
 export default class Project {
   constructor(title, todos = []) {
@@ -16,6 +17,7 @@ export default class Project {
     header.className = "header";
     header.appendChild(title);
     header.appendChild(NewTodoButton(this));
+    header.appendChild(RemoveButton(this));
 
     const projectDiv = document.createElement("div");
     projectDiv.className = "project-card";

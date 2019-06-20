@@ -4,7 +4,6 @@ import Todo from './Todo';
 
 export default function ProjectList() {
   const projects = retrieveProjects();
-  console.log(projects);
   const projectsDiv = document.createElement('div');
   projectsDiv.className = 'projects';
 
