@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(90, 90, 90, 0.3);
+    background-image: url("http://i.imgur.com/TnNwdvV.png");
     margin: 0;
     font-family: ubuntu, arial;
 }
@@ -25,7 +25,7 @@ body {
 }
 
 .new-project-btn:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1));
 }
 
 .projects {
