@@ -11,8 +11,7 @@ export default function TodoForm(id) {
        <option value="1">Medium Priority</option>
        <option value="2">High Priority</option>
      </select>
-    `
-    ,
+    `,
     focusConfirm: false,
     confirmButtonText: 'Add To-do',
     preConfirm: () => {

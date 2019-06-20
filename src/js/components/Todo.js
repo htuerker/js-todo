@@ -1,4 +1,6 @@
-const priorityColors = ['LightBlue', 'khaki', 'LightCoral'];
+import PriorityBullet from "./PriorityBullet";
+import DoneCheckbox from "./DoneCheckbox";
+import DescriptionTextarea from "./DescriptionTextarea";
 
 export default class Todo {
   constructor(title, description, priority) {
@@ -23,44 +25,21 @@ export default class Todo {
   }
 
   render() {
-    const todoDiv = document.createElement("div");
-    todoDiv.className = "todo-block";
-    todoDiv.id = "todo-" + this.id;
+    const title = document.createElement("p");
+    title.innerHTML = this.title;
+    title.prepend(PriorityBullet(this));
+    title.addEventListener('click', () => this.toggleDescription());
 
     const header = document.createElement("div");
     header.className = "header"
+    header.appendChild(title);
+    header.appendChild(DoneCheckbox(this));
 
-    const todoTitle = document.createElement("p");
-    todoTitle.innerHTML = this.title;
-
-    const priorityBullet = document.createElement('span');
-    priorityBullet.innerHTML = '•';
-    priorityBullet.className = 'priority-bullet';
-    priorityBullet.style.color = priorityColors[this.priority];
-    todoTitle.prepend(priorityBullet);
-    todoTitle.addEventListener('click', () => this.toggleDescription());
-    header.appendChild(todoTitle);
-
-    // To-Do extract it into another component
-    const doneCheckboxDiv = document.createElement("div");
-    const checkbox = document.createElement('input');
-    checkbox.id = 'check-' + this.id;
-    checkbox.type = 'checkbox';
-    checkbox.addEventListener('change', () => this.toggleDone());
-    const label = document.createElement('label');
-    label.setAttribute('for', 'check-' + this.id);
-    const span = document.createElement('span');
-    label.appendChild(span);
-    doneCheckboxDiv.appendChild(checkbox);
-    doneCheckboxDiv.appendChild(label);
-
-    header.appendChild(doneCheckboxDiv);
+    const todoDiv = document.createElement("div");
+    todoDiv.className = "todo-block";
+    todoDiv.id = "todo-" + this.id;
     todoDiv.appendChild(header);
-    const todoDescription = document.createElement("div");
-    todoDescription.innerHTML = this.description;
-    todoDescription.className = "todo-description";
-    todoDescription.id = "todo-description-" + this.id;
-    todoDiv.appendChild(todoDescription);
+    todoDiv.appendChild(DescriptionTextarea(this));
 
     return todoDiv;
   }

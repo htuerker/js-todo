@@ -1,6 +1,6 @@
 import TodoForm from './TodoForm'
 
-export default function TodoButton(id) {
+export default function NewTodoButton(id) {
   const newTodoButton = document.createElement('button');
   newTodoButton.innerHTML = '+';
   newTodoButton.className = "new-todo-btn"
