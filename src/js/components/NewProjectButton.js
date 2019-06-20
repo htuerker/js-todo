@@ -27,6 +27,6 @@ function ProjectForm() {
 function appendProject() {
   const newProject = new Project(document.getElementById('title').value);
   const projectsDiv = document.querySelector('.projects');
-  projectsDiv.appendChild(newProject.render());
+  projectsDiv.prepend(newProject.render());
   saveProject(newProject);
 }
