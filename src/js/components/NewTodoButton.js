@@ -30,7 +30,7 @@ function TodoForm(project) {
 }
 
 function appendTodo(project) {
-  const projectDiv = document.getElementById('project-' + project.id);
+  const projectDiv = document.querySelector('#project-' + project.id + ' .content');
   if(projectDiv) {
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;

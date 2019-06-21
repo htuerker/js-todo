@@ -23,7 +23,7 @@ function remove(element) {
     }).then((result) => {
     if (result.value) {
         if (element instanceof Todo) {
-          const projectDiv = document.getElementById("project-" + element.project);
+          const projectDiv = document.querySelector("#project-" + element.project + ' .content');
           const todoDiv = document.getElementById("todo-" + element.id);
           projectDiv.removeChild(todoDiv);
           deleteTodo(element);
