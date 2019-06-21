@@ -177,3 +177,18 @@ i:active {
     right: 50%;
     margin-right: -580px;
 }
+
+
+@media (max-width: 1180px) {
+    .prev-btn, .next-btn {
+        top: 23px;
+    }
+
+    .prev-btn {
+        margin-left: -42vw;
+    }
+
+    .next-btn {
+        margin-right: -42vw;
+    }
+}
