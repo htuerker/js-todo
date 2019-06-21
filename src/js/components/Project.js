@@ -19,16 +19,20 @@ export default class Project {
     header.appendChild(NewTodoButton(this));
     header.appendChild(RemoveButton(this));
 
+    const content = document.createElement("div");
+    content.className = "content";
+    if (this.todos) {
+      this.todos.forEach((todo) => {
+        Object.setPrototypeOf(todo, Todo.prototype);
+        content.appendChild(todo.render());
+      });
+    }
+
     const projectDiv = document.createElement("div");
     projectDiv.className = "project-card";
     projectDiv.setAttribute('id', 'project-' + this.id);
     projectDiv.appendChild(header);
-    if (this.todos) {
-      this.todos.forEach((todo) => {
-        Object.setPrototypeOf(todo, Todo.prototype);
-        projectDiv.appendChild(todo.render());
-      });
-    }
+    projectDiv.appendChild(content);
 
     return projectDiv;
   }
