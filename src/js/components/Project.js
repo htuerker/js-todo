@@ -2,25 +2,34 @@ import Todo from './Todo';
 import NewTodoButton from './NewTodoButton';
 import RemoveButton from './RemoveButton';
 
+function uniqueId() {
+  if (!localStorage.project_id) {
+    localStorage.project_id = 1;
+  } else {
+    localStorage.project_id += 1;
+  }
+  return localStorage.roject_id;
+}
+
 export default class Project {
   constructor(title, todos = []) {
-    this.id = this.uniqueId();
+    this.id = uniqueId();
     this.title = title;
     this.todos = todos;
   }
 
   render() {
-    const title = document.createElement("h2");
+    const title = document.createElement('h2');
     title.innerHTML = this.title;
 
-    const header = document.createElement("div");
-    header.className = "header";
+    const header = document.createElement('div');
+    header.className = 'header';
     header.appendChild(title);
     header.appendChild(NewTodoButton(this));
     header.appendChild(RemoveButton(this));
 
-    const content = document.createElement("div");
-    content.className = "content";
+    const content = document.createElement('div');
+    content.className = 'content';
     if (this.todos) {
       this.todos.forEach((todo) => {
         Object.setPrototypeOf(todo, Todo.prototype);
@@ -28,21 +37,12 @@ export default class Project {
       });
     }
 
-    const projectDiv = document.createElement("div");
-    projectDiv.className = "project-card";
-    projectDiv.setAttribute('id', 'project-' + this.id);
+    const projectDiv = document.createElement('div');
+    projectDiv.className = 'project-card';
+    projectDiv.setAttribute('id', `project-${this.id}`);
     projectDiv.appendChild(header);
     projectDiv.appendChild(content);
 
     return projectDiv;
-  }
-
-  uniqueId() {
-    if(!localStorage['project_id']) {
-      localStorage['project_id'] = 1;
-    } else {
-      localStorage['project_id']++;
-    }
-    return localStorage['project_id'];
   }
 }
