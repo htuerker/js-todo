@@ -2,12 +2,19 @@ import Swal from 'sweetalert2';
 import Todo from './Todo.js';
 import { updateProject } from '../LocalStorage';
 
-export default function NewTodoButton(project) {
-  const newTodoButton = document.createElement('i');
-  newTodoButton.className = "far fa-plus-square"
-  newTodoButton.addEventListener('click', () => TodoForm(project));
+function appendTodo(project) {
+  const projectDiv = document.querySelector(`#project-${project.id} .content`);
+  if (projectDiv) {
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const priority = document.getElementById('priority').value;
+    const todoObject = new Todo(title, description, priority, project.id);
+    const newTodoDiv = todoObject.render();
+    projectDiv.appendChild(newTodoDiv);
 
-  return newTodoButton;
+    project.todos.push(todoObject);
+    updateProject(project);
+  }
 }
 
 function TodoForm(project) {
@@ -25,21 +32,14 @@ function TodoForm(project) {
     confirmButtonText: 'Add To-do',
     preConfirm: () => {
       appendTodo(project);
-    }
+    },
   });
 }
 
-function appendTodo(project) {
-  const projectDiv = document.querySelector('#project-' + project.id + ' .content');
-  if(projectDiv) {
-    const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
-    const priority = document.getElementById('priority').value;
-    const todoObject = new Todo(title, description, priority, project.id);
-    const newTodoDiv = todoObject.render();
-    projectDiv.appendChild(newTodoDiv);
+export default function NewTodoButton(project) {
+  const newTodoButton = document.createElement('i');
+  newTodoButton.className = 'far fa-plus-square';
+  newTodoButton.addEventListener('click', () => TodoForm(project));
 
-    project.todos.push(todoObject);
-    updateProject(project);
-  }
+  return newTodoButton;
 }
