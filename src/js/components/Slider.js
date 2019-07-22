@@ -27,8 +27,7 @@ function plusSlider(n) {
         clearInterval(id);
       }
     } else {
-      const currentScroll = delete projectsDiv.scrollLeft;
-      if (currentScroll <= target) {
+      if (projectsDiv.scrollLeft <= target) {
         projectsDiv.scrollLeft = target;
         clearInterval(id);
       }
