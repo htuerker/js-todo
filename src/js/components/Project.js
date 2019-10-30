@@ -6,9 +6,9 @@ function uniqueId() {
   if (!localStorage.project_id) {
     localStorage.project_id = 1;
   } else {
-    localStorage.project_id += 1;
+    localStorage.project_id = parseInt(localStorage.project_id, 10) + 1;
   }
-  return localStorage.roject_id;
+  return localStorage.project_id;
 }
 
 export default class Project {
