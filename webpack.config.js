@@ -18,8 +18,14 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'file-loader?name=/public/img/[name].[ext]',
+        test: /\.(png|jp(e*)g|svg)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 8000,
+            name: '/public/img/[hash]-[name].[ext]',
+          },
+        }],
       },
     ],
   },
