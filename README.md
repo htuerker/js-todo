@@ -1,10 +1,17 @@
-The Odin Project - JavaScript project: To-do List
+# JavaScript project: To-do List
 
-Assignment: https://www.theodinproject.com/courses/javascript/lessons/todo-list
+## Core Functionalities
+- Allows create and delete projects
+- Allows create, remove, and update tasks in a project
+- Allows horizontal navigation when many projects
+- Allows vertical navigation when many tasks
+- Stores data into local storage
+
+![](preview.png)
 
 Authors: <a href="https://github.com/btuerker">Burhan Tuerker</a> / <a href="https://github.com/madcido">Fabio Carmo</a>
 
-Preview: https://raw.githack.com/btuerker/js-todo/dev/index.html
+Live Preview: https://raw.githack.com/btuerker/js-todo/master/dist/index.html
 
 ## Installation Guide
 ### Prerequisities
@@ -32,7 +39,7 @@ $ npm install
 ```
 ##### Build project
 ```
-$ webpack
+$ npm run build
 ```
 
-Now you can check the index.html file with your best browser.
+Now you can check the dist/index.html file with your best browser.
