@@ -1,12 +1,18 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/js/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: path.resolve(__dirname, 'dist'),
+    filename: '[name].[chunkhash].js',
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'template.html',
+    }),
+  ],
   devtool: 'source-map',
   module: {
     rules: [
@@ -23,7 +29,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 8000,
-            name: '/public/img/[hash]-[name].[ext]',
+            name: 'images/[hash]-[name].[ext]',
           },
         }],
       },

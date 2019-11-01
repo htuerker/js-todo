@@ -1,5 +1,5 @@
 body {
-    background-image: url("../assets/image.png");
+    background-image: url('../assets/image.png');
     margin: 0;
     font-family: ubuntu, arial;
     -webkit-touch-callout: none; /* iOS Safari */

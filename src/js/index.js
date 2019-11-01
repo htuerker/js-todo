@@ -1,4 +1,6 @@
 import '../styles/main.css';
+import '../styles/checkbox.css';
+
 import ProjectList from './components/ProjectList';
 import NewProjectButton from './components/NewProjectButton';
 import { PrevButton, NextButton } from './components/Slider';
